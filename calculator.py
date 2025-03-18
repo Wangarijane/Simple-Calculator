@@ -1,38 +1,36 @@
-def add(x, y):
-    return x + y
+# Basic Calculator Program
 
-def subtract(x, y):
-    return x - y
+# Importing necessary libraries
+def calculator():
+    # Prompt user to input two numbers
+    num1 = input("Enter the first number: ")
+    num2 = input("Enter the second number: ")
 
-def multiply(x, y):
-    return x * y
+    # Prompt user to input a mathematical operation
+    operation = input("Enter the operation ((+),(-),(*),(/)): ")
 
-def divide(x, y):
-    if y == 0:
-        return "Error! Division by zero."
-    return x / y
+    # Convert inputs to integers
+    num1 = int(num1)
+    num2 = int(num2)
 
-def main():
-    try:
-        num1 = float(input("Enter first number: "))
-        num2 = float(input("Enter second number: "))
-        operation = input("Enter operation (+, -, *, /): ")
-
-        if operation == '+':
-            result = add(num1, num2)
-        elif operation == '-':
-            result = subtract(num1, num2)
-        elif operation == '*':
-            result = multiply(num1, num2)
-        elif operation == '/':
-            result = divide(num1, num2)
+    # Perform operation based on user's input
+    if operation == '+':
+        result = num1 + num2
+    elif operation == '-':
+        result = num1 - num2
+    elif operation == '*':
+        result = num1 * num2
+    elif operation == '/':
+        # Check if division by zero will not occur
+        if num2 != 0:
+            result = num1 / num2
         else:
-            print("Invalid operation")
-            return
+            print("Error: Division by zero is undefined.")
+    else:
+        print("Error: Invalid operation.")
 
-        print(f"{num1} {operation} {num2} = {result}")
-    except ValueError:
-        print("Invalid input. Please enter numeric values.")
+    # Display the result
+    print(f"{num1} {operation} {num2} = {result}")
 
-if __name__ == "__main__":
-    main()
+# Running the calculator function
+calculator()
